@@ -1,0 +1,8 @@
+-- 13. From the match_details table, count the number of matches ending with a goalless draw in-group stage of play.
+-- Return number of matches.
+
+select count(distinct(match_no)) as matches
+    from match_details
+    where win_lose = 'D'
+    and goal_score = 0
+    and play_stage = 'G'

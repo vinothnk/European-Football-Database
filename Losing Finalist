@@ -1,0 +1,7 @@
+-- 53. From the soccer_country and match_details tables, find the runners-up in Football EURO cup 2016. Return country name
+
+select country_name
+    from soccer_country where country_id = 
+(select team_id
+    from match_details
+    where play_stage = 'F' and win_lose = 'L')

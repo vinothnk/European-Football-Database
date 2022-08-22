@@ -1,0 +1,10 @@
+-- 54. From the soccer_country and penalty_shootout tables, find the maximum penalty shots taken by the teams. 
+-- Return country name, maximum penalty shots
+
+
+select soccer_country.country_name,
+       count(kick_id)
+    from penalty_shootout
+    join soccer_country
+    on soccer_country.country_id = penalty_shootout.team_id
+    group by 1

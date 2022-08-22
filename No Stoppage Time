@@ -1,0 +1,8 @@
+-- 12. From the match_mast table, find those matches where no stoppage time added in the first half of play. 
+-- Return match no, date of play, and goal scored.
+
+select match_no,
+       play_date,
+       goal_score
+    from match_mast
+    where stop1_sec = 0

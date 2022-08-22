@@ -1,0 +1,10 @@
+-- 75. From the soccer_venue, soccer_city, and match_mast tables, find the stadium hosted the final match of EURO cup 2016. 
+-- Return venue_name, city, aud_capacity, audience
+
+SELECT sv.venue_name, sc.city, sv.aud_capacity, mm.audence
+FROM soccer_venue AS sv
+JOIN soccer_city AS sc
+ON sv.city_id = sc.city_id
+JOIN match_mast AS mm
+ON sv.venue_id = mm.venue_id
+WHERE mm.play_stage = ‘F’

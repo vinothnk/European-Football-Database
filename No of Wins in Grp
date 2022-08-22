@@ -1,0 +1,6 @@
+-- 8. From the match_mast table, count the number of matches ended with a win results in-group stage.
+
+select count(results) as result_win_grp
+    from match_mast
+    where results = 'WIN'
+    and play_stage = 'G'

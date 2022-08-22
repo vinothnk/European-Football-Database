@@ -1,0 +1,17 @@
+-- 34. From the match_mast, match_details, and soccer_country tables, 
+-- find the result of the match where Portugal played against Hungary. 
+-- Return match_no, play_stage, play_date, results, goal_score
+
+select match_details.match_no,
+       match_details.play_stage,
+       match_mast.play_date,
+       match_mast.results,
+       match_mast.goal_score
+    from match_details
+    join soccer_country
+    on soccer_country.country_id = match_details.team_id
+    inner join match_mast
+    on match_mast.match_no = match_details.match_no
+    where soccer_country.country_name = 'Portugal' or soccer_country.country_name = 'Hungary'
+    group by 1,2,3,4,5
+    having count(match_details.match_no) = 2

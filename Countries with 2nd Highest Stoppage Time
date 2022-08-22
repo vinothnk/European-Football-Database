@@ -1,0 +1,20 @@
+-- 39. From the soccer_country, match_details, and match_mast tables, 
+-- find the teams played the match where second highest stoppage time had been added in second half of play. 
+-- Return country name of the teams.
+
+SELECT country_name
+FROM soccer_country
+WHERE country_id IN
+(
+SELECT team_id FROM match_details WHERE match_no =
+(
+SELECT match_no FROM match_mast WHERE stop2_sec =
+(
+SELECT MIN(t.stop2_sec) AS Second_Highest_Stoppage
+FROM
+(
+SELECT stop2_sec FROM match_mast ORDER BY stop2_sec DESC LIMIT 2
+) AS t
+)
+)
+)

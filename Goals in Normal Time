@@ -1,0 +1,5 @@
+-- 3. From the goal_details table, find the number of goals scored in EURO cup 2016 within normal time schedule.
+
+select count(goal_id) as no_of_goals
+    from goal_details
+    where goal_schedule = 'NT'

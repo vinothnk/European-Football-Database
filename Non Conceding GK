@@ -1,0 +1,14 @@
+-- 52. From the player_mast, match_details, and soccer_country tables, 
+-- find the Germany goalkeeper who didn’t concede any goal in their group stage matches. Return goalkeeper name, jersey number
+
+select player_name,
+       jersey_no
+    from player_mast where player_id =
+(select player_gk
+    from match_details where team_id = (
+select country_id
+    from soccer_country where country_name = 'Germany')
+    and play_stage = 'G' and goal_score = 0)
+
+
+    

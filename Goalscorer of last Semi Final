@@ -1,0 +1,20 @@
+-- 49. From the player_mast, goal_details, and soccer_country tables, find the players who scored the last goal in the 
+-- 2nd semi-final, i.e., 50th match in EURO cup 2016. Return player name, goal time, goal half, country name
+
+with table1 as
+(select *
+    from goal_details where team_id in 
+(select country_id
+    from soccer_country
+)
+and match_no = 50 and goal_half = 2)
+
+select player_mast.player_name,
+       table1.goal_time,
+       table1.goal_half,
+       soccer_country.country_name
+    from player_mast
+    join table1
+    on table1.player_id = player_mast.player_id
+    join soccer_country
+    on player_mast.team_id = soccer_country.country_id

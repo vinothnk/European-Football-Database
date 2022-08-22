@@ -1,0 +1,4 @@
+-- 6. From the match_mast table, find the date when Football EURO cup 2016 begins.
+
+select min(play_date) as euros_start_date
+    from match_mast

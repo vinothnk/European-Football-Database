@@ -1,0 +1,10 @@
+-- 32. From the match_mast table, find the most watched match in the world. Return match_no, play_stage, goal_score, audience
+
+select match_no,
+       play_stage, 
+       goal_score,
+       max(audence) as audience
+    from match_mast
+    group by 1,2,3
+    order by 4 DESC
+    limit 1

@@ -1,0 +1,16 @@
+-- 63. From the soccer_venue, soccer_city, and match_mast tables, find the venue where EURO cup 2016 final match held. 
+-- Return venue name, city
+
+with table1 as
+(select *
+    from soccer_venue where venue_id = 
+(select venue_id
+    from match_mast
+    where play_stage = 'F')
+)
+
+select table1.venue_name,
+       soccer_city.city
+    from table1
+    join soccer_city
+    on soccer_city.city_id = table1.city_id

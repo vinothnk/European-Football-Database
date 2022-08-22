@@ -1,0 +1,9 @@
+-- 14. From the match_details table, count the number of matches ending with only one goal win, 
+-- except those matches, which was decided by penalty shoot-out. Return number of matches.
+
+select count(match_no) as one_nil_matches
+    from match_details
+    where penalty_score = 0
+    and goal_score = 1
+    and win_lose = 'W'
+    

@@ -1,0 +1,12 @@
+-- 79. From the soccer_venue, match_mast, and goal_details tables, count number of goals that has been scored at each venue.
+-- Return venue name and number of goals
+
+SELECT sv.venue_name, 
+       COUNT(gd.goal_id)
+FROM soccer_venue AS sv
+JOIN match_mast AS mm
+ON sv.venue_id = mm.venue_id
+JOIN goal_details AS gd
+ON mm.match_no = gd.match_no
+GROUP BY 1
+ORDER BY 2 DESC

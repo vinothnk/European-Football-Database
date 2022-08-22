@@ -1,0 +1,9 @@
+-- 11. From the goal_details table, find the number of goal scored in every match within normal play schedule. 
+-- Sort the result-set on match number. Return match number, number of goal scored.
+
+select match_no,
+       count(goal_id)
+    from goal_details
+    where NOT goal_schedule = 'ET'
+    group by 1
+    order by 1

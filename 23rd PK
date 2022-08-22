@@ -1,0 +1,10 @@
+-- 59. From the match_mast and penalty_shootout tables, find the stage of match where penalty kick number 23 had been taken.
+-- Return match number, play_stage
+
+select match_no,
+       play_stage
+    from match_mast where match_no =
+(select match_no
+    from penalty_shootout
+    where kick_id = 23)
+

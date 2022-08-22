@@ -1,0 +1,12 @@
+-- 38. From the match_mast table, find the second-highest stoppage time, which had been added, in the second half of play
+
+with table1 as
+(select stop2_sec
+    from match_mast
+    order by 1 DESC
+    limit 2)
+    
+select min(stop2_sec) as second_highest
+    from table1
+    
+    

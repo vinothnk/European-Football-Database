@@ -1,0 +1,5 @@
+-- 4. From the match_mast table, find the number of matches ended with a result.
+
+select count(match_no) as results
+    from match_mast
+    where results is not null

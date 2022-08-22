@@ -1,0 +1,19 @@
+-- 44. From the player_mast, soccer_country, and goal_details tables, find the player who scored the first penalty in the tournament.
+-- Return player name, Jersey number and country name.
+
+
+with table1 as
+(SELECT player_name, jersey_no, team_id
+FROM player_mast
+WHERE player_id =
+(
+SELECT player_id FROM goal_details WHERE goal_type = 'P' ORDER BY goal_id ASC LIMIT 1
+)
+)
+
+select table1.player_name,
+       table1.jersey_no,
+       soccer_country.country_name
+    from table1
+    join soccer_country
+    on soccer_country.country_id = table1.team_id

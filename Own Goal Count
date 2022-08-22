@@ -1,0 +1,5 @@
+-- 7. From the goal_details table, find the number of self-goals scored in EURO cup 2016.
+
+select count(goal_type) as own_goal_count
+    from goal_details
+    where goal_type = 'O'

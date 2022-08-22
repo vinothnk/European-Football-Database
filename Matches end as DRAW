@@ -1,0 +1,5 @@
+-- 5. From the match_mast table, find the number of matches ended with draws.
+
+select count(results) as no_of_draws
+    from match_mast
+    where results = 'DRAW'

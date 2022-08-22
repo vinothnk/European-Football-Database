@@ -1,0 +1,7 @@
+-- 56. From the penalty_shootout table, find those match where the highest number of penalty shots taken
+
+select distinct(match_no)
+    from penalty_shootout
+    group by 1
+    order by 1 DESC
+    limit 1

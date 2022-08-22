@@ -1,0 +1,11 @@
+-- 33. From the match_details and soccer_country tables, find the match number in which Germany played against Poland.
+-- Group the result set on match number. Return match number
+
+select match_details.match_no
+    from match_details
+    join soccer_country
+    on soccer_country.country_id = match_details.team_id
+    where soccer_country.country_name = 'Germany' or soccer_country.country_name = 'Poland'
+    group by 1
+    having count(match_details.match_no) = 2
+    

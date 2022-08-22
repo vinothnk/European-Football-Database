@@ -1,0 +1,9 @@
+-- 64. From the match_details and soccer_country tables, find the number of goal scored by each team in every match within normal
+-- play schedule. Return match number, country name and goal score.
+
+SELECT md.match_no, sc.country_name, md.goal_score
+FROM match_details AS md
+JOIN soccer_country AS sc
+ON md.team_id = sc.country_id
+group by 1,2,3
+order by 1

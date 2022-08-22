@@ -1,0 +1,19 @@
+-- 66. From the player_mast, goal_details, and soccer_country tables, find the highest individual scorer in EURO cup 2016.
+-- Return player name, country name and highest individual scorer
+with table1 as
+(select player_id,
+       team_id,
+       count(goal_id)
+    from goal_details
+    group by 1,2
+    order by count DESC
+    limit 1)
+    
+select player_mast.player_name,
+       soccer_country.country_name,
+       table1.count as most_goals
+    from player_mast
+    join table1
+    on table1.player_id = player_mast.player_id
+    join soccer_country
+    on soccer_country.country_id = player_mast.team_id

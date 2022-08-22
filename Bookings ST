@@ -1,0 +1,5 @@
+-- 28. From the player_booked table, count the number of booking happened in stoppage time
+
+select count(player_id) as bookings_ST
+    from player_booked
+    where play_schedule = 'ST'

@@ -1,0 +1,10 @@
+-- 71. From the referee_mast, soccer_country, and match_mast tables, find the referee who managed the final match. 
+-- Return referee name, country name
+
+SELECT rm.referee_name, sc.country_name
+FROM referee_mast AS rm
+JOIN soccer_country AS sc
+ON rm.country_id = sc.country_id
+JOIN match_mast AS mm
+ON rm.referee_id = mm.referee_id
+WHERE mm.match_no = 51

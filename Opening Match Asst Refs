@@ -1,0 +1,12 @@
+-- 72. From the asst_referee_mast, soccer_country, and match_details tables, find the referee who assisted the referee in 
+-- the opening match. Return associated referee name, country name
+
+select asst_referee_mast.ass_ref_name,
+       soccer_country.country_name
+    from asst_referee_mast 
+    join soccer_country
+    on soccer_country.country_id = asst_referee_mast.country_id
+    where ass_ref_id in(
+select ass_ref
+    from match_details
+    where match_no = 1)

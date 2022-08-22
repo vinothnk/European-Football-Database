@@ -1,0 +1,6 @@
+-- 24. From the penalty_shootout table, count the number of shots missed or saved in penalty shootout matches.
+-- Return number of shots missed as “Goal missed or saved by Penalty Kicks”
+
+select count(score_goal) as penalty_saved
+    from penalty_shootout
+    where score_goal = 'N'

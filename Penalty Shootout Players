@@ -1,0 +1,12 @@
+-- 25. From the penalty_shootout and player_mast tables, find the players with shot number they taken in penalty shootout matches.
+-- Return match_no, Team, player_name, jersey_no, score_goal, kick_no
+
+select ps.match_no,
+       pm.playing_club,
+       pm.player_name,
+       pm.jersey_no,
+       ps.score_goal,
+       ps.kick_no
+    from penalty_shootout ps
+    join player_mast pm
+    on pm.player_id = ps.player_id

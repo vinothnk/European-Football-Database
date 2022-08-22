@@ -1,0 +1,18 @@
+-- 76. From the soccer_venue, soccer_city, and match_mast tables, count the number of matches played in each venue.
+-- Sort the result-set on venue name. Return Venue name, city, and number of matches
+
+with table1 as
+(select venue_id,
+       count(venue_id)
+    from match_mast
+    group by 1)
+    
+select soccer_venue.venue_name,
+       soccer_city.city,
+       table1.count
+    from table1
+    join soccer_venue
+    on soccer_venue.venue_id = table1.venue_id
+    join soccer_city
+    on soccer_city.city_id = soccer_venue.city_id
+    order by 1

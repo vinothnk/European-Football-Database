@@ -1,0 +1,12 @@
+-- 21. From the player_in_out table, count the number of substitute happened in various stage of play for the entire Tournament. 
+-- Sort the result-set in ascending order by play-half, play-schedule and number of substitute happened. 
+-- Return play-half, play-schedule, number of substitute happened
+
+select play_half,
+       play_schedule,
+       count(in_out)
+    from player_in_out
+    where in_out = 'I'
+    group by 1,2
+    order by 1,2,3
+    

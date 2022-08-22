@@ -1,0 +1,7 @@
+-- 19. From the match_details table, count the total number of goalless draws have there in the entire tournament.
+-- Return number of goalless draws.
+
+select count(distinct(match_no)) as goalless_draw
+    from match_details
+    where win_lose = 'D'
+    and goal_score = 0

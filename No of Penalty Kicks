@@ -1,0 +1,5 @@
+-- 22. From the penalty_shootout table, count the number of shots taken in penalty shootout matches. 
+-- Number of shots as “Number of Penalty Kicks”
+
+select count(kick_no) as no_of_penalty_kicks
+    from penalty_shootout

@@ -1,0 +1,17 @@
+-- 36. From the soccer_country, goal_details, and match_mast tables, find the highest audience match. 
+-- Return country name of the teams
+
+with max_audence as
+(select team_id,
+       max(match_mast.audence) as highest_audience
+    from goal_details
+    join match_mast
+    on match_mast.match_no = goal_details.match_no
+    group by 1
+    order by 2 DESC
+    limit 2)
+    
+select soccer_country.country_name
+    from soccer_country
+    join max_audence
+    on max_audence.team_id = soccer_country.country_id

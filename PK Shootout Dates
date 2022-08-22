@@ -1,0 +1,6 @@
+-- 61. From the match_mast and penalty_shootout tables, find the date when penalty shootout matches played. Return playing date
+
+select distinct play_date
+    from penalty_shootout
+    join match_mast
+    on match_mast.match_no = penalty_shootout.match_no

@@ -1,0 +1,16 @@
+-- 35. From the goal_details, soccer_country, and player_mast tables, find those players who scored number of goals in every match.
+-- Group the result set on match number, country name and player name. Sort the result-set in ascending order by match number. 
+-- Return match number, country name, player name and number of matches
+
+select DISTINCT goal_details.match_no,
+       soccer_country.country_name,
+       player_mast.player_name,
+       count(goal_details.match_no)
+    from goal_details
+    join player_mast
+    on player_mast.player_id = goal_details.player_id
+    join soccer_country
+    on player_mast.team_id = soccer_country.country_id
+    group by 1,2,3
+    order by 1
+    

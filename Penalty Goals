@@ -1,0 +1,6 @@
+-- 23. From the penalty_shootout table, count the number of shots scored goal in penalty shootout matches. 
+-- Return number of shots scored goal as “Goal Scored by Penalty Kicks”
+
+select count(score_goal) as goals_pk
+    from penalty_shootout
+    where score_goal = 'Y'

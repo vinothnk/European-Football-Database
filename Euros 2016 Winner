@@ -1,0 +1,8 @@
+-- 31. From the soccer_country and match_details tables, find the winner of EURO cup 2016. Return country name
+
+SELECT sc.country_name
+    FROM match_details AS md
+    JOIN soccer_country AS sc
+    ON md.team_id = sc.country_id
+    where md.play_stage = 'F'
+    and md.win_lose = 'W'

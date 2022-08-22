@@ -1,0 +1,21 @@
+-- 50. From the player_mast, match_captain, and match_details tables, find the captain of the EURO cup 2016 winning team from
+-- Portugal. Return the captain name
+
+select player_name
+    from player_mast where player_id in
+(select distinct(player_captain)
+    from match_captain where team_id = 
+(select team_id
+    from match_details
+    where play_stage = 'F' and win_lose = 'W')
+)
+
+-- SELECT player_name
+-- FROM player_mast
+-- WHERE player_id =
+-- (
+-- SELECT DISTINCT(player_captain) FROM match_captain WHERE team_id =
+-- (
+-- SELECT team_id FROM match_details WHERE play_stage = 'F' AND win_lose = 'W'
+-- )
+-- )

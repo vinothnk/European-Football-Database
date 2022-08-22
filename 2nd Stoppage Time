@@ -1,0 +1,14 @@
+-- 40. From the match_mast table, find the teams played the match where second highest stoppage time had been added in 
+-- second half of play. Return match_no, play_date, stop2_sec.
+
+with table1 as
+(select stop2_sec
+    from match_mast order by stop2_sec DESC limit 2)
+    
+select match_no,
+       play_date,
+       stop2_sec
+   from match_mast where stop2_sec in
+(
+select min(stop2_sec) from table1
+)

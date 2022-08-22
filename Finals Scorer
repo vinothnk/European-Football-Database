@@ -1,0 +1,16 @@
+-- 67. From the player_mast, soccer_country, and goal_details tables, find the scorer in the final of EURO cup 2016.
+-- Return player name, jersey number and country name
+
+with table1 as
+(select *
+    from player_mast where player_id = 
+(select player_id
+    from goal_details
+    where play_stage = 'F'))
+    
+select table1.player_name,
+       table1.jersey_no,
+       soccer_country.country_name
+    from table1
+    join soccer_country
+    on soccer_country.country_id = table1.team_id

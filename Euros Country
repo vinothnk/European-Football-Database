@@ -1,0 +1,10 @@
+-- 68. From the soccer_venue, soccer_city, and soccer_country tables, find the country where Football EURO cup 2016 held.
+-- Return country name
+
+select country_name
+    from soccer_country where country_id in (
+select soccer_city.country_id
+    from soccer_venue
+    join soccer_city
+    on soccer_city.city_id = soccer_venue.city_id)
+    

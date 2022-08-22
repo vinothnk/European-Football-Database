@@ -1,0 +1,4 @@
+-- 2. From the player_mast table, count the number of countries participated in the EURO cup 2016.
+
+select count(distinct(team_id)) as no_of_countries
+    from player_mast

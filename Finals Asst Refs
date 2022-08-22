@@ -1,0 +1,10 @@
+-- 73. From the asst_referee_mast, soccer_country, and match_details tables, find the referee who assisted the referee in 
+-- the final match. Return associated referee name, country name
+
+SELECT arm.ass_ref_name, sc.country_name
+FROM asst_referee_mast AS arm
+JOIN soccer_country AS sc
+ON arm.country_id = sc.country_id
+JOIN match_details AS md
+ON arm.ass_ref_id = md.ass_ref
+WHERE md.match_no = 51

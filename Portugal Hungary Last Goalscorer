@@ -1,0 +1,21 @@
+-- 37. From the player_mast, goal_details, match_details, and soccer_country tables, 
+-- find the player who scored the last goal for Portugal against Hungary. Return player name
+
+-- 1st step - isolate country using names
+-- 2nd step - get match details where both team played
+-- 3rd step - get the goal details of that match
+-- 4th step - find the player who score the last goal
+
+select player_name
+    from player_mast where player_id =
+(
+SELECT player_id FROM goal_details WHERE match_no =
+(
+SELECT match_no FROM match_details WHERE team_id IN
+(
+SELECT country_id FROM soccer_country WHERE country_name IN ('Portugal', 'Hungary')
+)
+group by 1 having count(match_no) = 2
+)
+order by 1 DESC limit 1
+)

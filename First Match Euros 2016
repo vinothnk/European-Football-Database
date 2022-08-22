@@ -1,0 +1,8 @@
+-- 30. From the match_details and soccer_country tables, find the teams played the first match of EURO cup 2016. 
+-- Return match number, country name
+
+select soccer_country.country_name
+    from match_details
+    join soccer_country
+    on soccer_country.country_id = match_details.team_id
+    where match_details.match_no = 1

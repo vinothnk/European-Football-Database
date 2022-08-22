@@ -1,0 +1,7 @@
+-- 16. From the player_in_out table, count the total number of players replaced within normal time of play. 
+-- Return number of players as “Player Replaced”.
+
+select count(player_id) as player_replaced_nt
+    from player_in_out
+    where play_schedule = 'NT'
+    and in_out = 'I'

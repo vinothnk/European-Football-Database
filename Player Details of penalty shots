@@ -1,0 +1,20 @@
+-- 55. From the player_mast, soccer_country, and penalty_shootout tables, 
+-- find the maximum number of penalty shots taken by the players. 
+-- Return country name, player name, jersey number and number of penalty shots
+
+with table1 as
+(select player_id,
+       team_id,
+       count(kick_id)
+    from penalty_shootout
+    group by 1,2)
+    
+select soccer_country.country_name,
+       player_mast.player_name,
+       player_mast.jersey_no,
+       table1.count as no_of_penalty_shots
+    from table1
+    join player_mast
+    on player_mast.player_id = table1.player_id
+    join soccer_country
+    on table1.team_id = soccer_country.country_id

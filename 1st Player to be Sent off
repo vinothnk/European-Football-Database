@@ -1,0 +1,12 @@
+-- 77. From the player_booked, player_mast, and soccer_country tables, find the player who was the first player to be 
+-- sent off at the tournament EURO cup 2016. Return match Number, country name and player name
+
+SELECT pb.match_no, sc.country_name, pm.player_name
+FROM player_booked AS pb
+JOIN player_mast AS pm
+ON pb.player_id = pm.player_id
+JOIN soccer_country AS sc
+ON pm.team_id = sc.country_id
+WHERE pb.sent_off = 'Y'
+ORDER BY pb.match_no ASC, pb.booking_time ASC
+LIMIT 1

@@ -1,0 +1,10 @@
+-- 43. From the player_mast and goal_details tables, find the player who scored the first penalty of the tournament.
+-- Return player name and Jersey number
+
+select player_name,
+       jersey_no
+    from player_mast where player_id in
+(select player_id
+    from goal_details
+    where goal_type = 'P'
+    limit 1)

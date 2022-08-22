@@ -1,0 +1,10 @@
+-- 74. From the soccer_venue, soccer_city, and match_mast tables, find the city where the opening match of EURO cup 2016 played.
+-- Return venue name, city.
+
+SELECT sv.venue_name, sc.city
+FROM soccer_venue AS sv
+JOIN soccer_city AS sc
+ON sv.city_id = sc.city_id
+JOIN match_mast AS mm
+ON sv.venue_id = mm.venue_id
+WHERE mm.match_no = 1

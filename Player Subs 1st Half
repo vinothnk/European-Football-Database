@@ -1,0 +1,7 @@
+-- 18. From the player_in_out table, count the total number of players replaced in the first half of play.
+-- Return number of players as “Player Replaced”.
+
+select count(player_id) as player_replaced_1st_half
+    from player_in_out
+    where in_out = 'I'
+    and play_half = 1

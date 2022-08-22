@@ -1,0 +1,6 @@
+-- 15. From the player_in_out table, count the number of players replaced in the tournament. 
+-- Return number of players as “Player Replaced”.
+
+select count(player_id) as Player_Replaced
+    from player_in_out
+    where in_out = 'O'

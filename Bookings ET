@@ -1,0 +1,5 @@
+-- 29. From the player_booked table, count the number of booking happened in extra time
+
+select count(player_id) as booking_ET
+    from player_booked
+    where play_schedule = 'ET'

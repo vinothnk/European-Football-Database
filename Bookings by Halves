@@ -1,0 +1,10 @@
+-- 27. From the player_booked table, count the number of booking happened in each half of play within normal play schedule.
+-- Return play_half, play_schedule, number of booking happened
+
+select distinct play_half,
+       play_schedule,
+       count(player_id) as no_of_bookings
+    from player_booked
+    where play_schedule = 'NT'
+    group by 1,2
+    

@@ -1,0 +1,18 @@
+-- 65. From the player_mast, goal_details, and soccer_country tables, count the number of goals scored by each player within 
+-- normal play schedule. Group the result set on player name and country name and sorts the result-set according to the highest 
+-- to the lowest scorer. Return player name, number of goals and country name
+with table1 as
+(select player_mast.player_name,
+       goal_details.team_id,
+       count(player_mast.player_id)
+    from goal_details
+    join player_mast
+    on player_mast.player_id = goal_details.player_id
+    group by 1,2)
+    
+select table1.player_name,
+       table1.count,
+       soccer_country.country_name
+    from table1
+    join soccer_country
+    on soccer_country.country_id = table1.team_id

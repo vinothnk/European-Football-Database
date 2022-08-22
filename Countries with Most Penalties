@@ -1,0 +1,13 @@
+-- 57. From the penalty_shootout and soccer_country tables, find the match number where highest number of penalty shots had been 
+-- taken. Return match number, country name
+
+select soccer_country.country_name,
+       penalty_shootout.match_no,
+       count(kick_id)
+    from penalty_shootout
+    join soccer_country
+    on soccer_country.country_id = penalty_shootout.team_id
+    group by 1,2
+    order by count DESC
+    limit 2
+    

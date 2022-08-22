@@ -1,0 +1,6 @@
+-- 20. From the player_in_out table, count the total number of players replaced in the extra time of play
+
+select count(player_id) as played_replaced_ET
+    from player_in_out
+    where play_schedule = 'ET'
+    and in_out = 'I'

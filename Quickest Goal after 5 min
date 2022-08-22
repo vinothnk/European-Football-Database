@@ -1,0 +1,8 @@
+-- 62. From the goal_details table, find the quickest goal at the EURO cup 2016, after 5 minutes. 
+-- Return ‘Quickest goal after 5 minutes’.
+
+select goal_time
+    from goal_details
+    where goal_time > 5
+    order by goal_time ASC
+    limit 1

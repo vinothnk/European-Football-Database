@@ -1,0 +1,6 @@
+-- 10. From the match_mast table, find the number of matches decided by penalties in the Round 16.
+
+select count(match_no) as penalties_r16
+    from match_mast
+    where decided_by = 'P'
+    and play_stage = 'R'

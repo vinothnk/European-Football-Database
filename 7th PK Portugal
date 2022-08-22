@@ -1,0 +1,13 @@
+-- 58. From the penalty_shootout, soccer_country, and player_mast tables, find the player of ‘Portugal’ who taken the seventh kick
+-- against ‘Poland’. Return match number, player name and kick number
+
+select penalty_shootout.match_no,
+       player_mast.player_name,
+       penalty_shootout.kick_no
+    from penalty_shootout
+    join player_mast
+    on player_mast.player_id = penalty_shootout.player_id
+    join soccer_country
+    on soccer_country.country_id = penalty_shootout.team_id
+    where soccer_country.country_name = 'Portugal'
+    and penalty_shootout.kick_no = 7

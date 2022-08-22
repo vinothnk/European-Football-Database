@@ -1,0 +1,15 @@
+-- 60. From the soccer_venue, match_mast, and penalty_shootout tables, find the venues where penalty shoot-out matches played.
+-- Return venue name
+
+with table1 as
+(select *
+    from penalty_shootout
+    join match_mast
+    on match_mast.match_no = penalty_shootout.match_no
+    where match_mast.decided_by = 'P')
+
+select distinct(soccer_venue.venue_name)       
+    from table1
+    join soccer_venue
+    on soccer_venue.venue_id = table1.venue_id
+    

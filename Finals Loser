@@ -1,0 +1,9 @@
+-- 41. From the soccer_country and match_details tables, find the team, which was defeated by Portugal in EURO cup 2016 final. 
+-- Return the country name of the team.
+
+select country_name
+    from soccer_country where country_id in
+(select team_id
+    from match_details
+    where play_stage = 'F'
+    and win_lose = 'L')

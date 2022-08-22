@@ -1,0 +1,9 @@
+-- 42. From the player_mast table, find the club, which supplied the most number of players to the 2016-EURO cup. 
+-- Return club name, number of players
+
+select distinct playing_club,
+       count(player_id)
+    from player_mast
+    group by 1
+    order by 2 DESC
+    limit 2
